@@ -1,14 +1,27 @@
 [tool.poetry]
-name = "multipass"
-version = "1.0a1"
-description = "Multipass is a tool to transparently work with multiple pass repositories."
+name = "multi-pass"
+version = "1.0a3"
+description = "multi-pass is a tool to transparently work with multiple pass repositories."
 authors = ["Julian Fölsch <julianf@paktosan.de>"]
+packages = [
+    { include = "multipass" },
+    ]
 readme = "README.md"
 license = "GPL-3.0-or-later"
 repository = "https://github.com/Paktosan/multipass"
+classifiers = ["Environment :: Console", "Development Status :: 2 - Pre-Alpha", "Intended Audience :: End Users/Desktop",
+"Operating System :: Unix", "Topic :: Security", "Topic :: Utilities"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
+docopt-ng = "^0.8.1"
+
+[tool.poetry.scripts]
+multi-pass = 'multipass.cli:run'
+
+
+[tool.poe.tasks]
+test = "pytest"
 
 
 [build-system]
